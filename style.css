@@ -8,17 +8,26 @@
 }
 header{
     position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
+    width: 90%;
+    top: .5rem;
+    left: 50%;
+    border-radius: 1rem;
+    transform: translateX(-50%);
     text-align: center;
     background-color: var(--primary-color);
     color: white;
     border-bottom: 5px solid var(--tertiary-color);
 }
-.week{
+.container{
     position: relative;
     top: 6rem;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+.week{
+    width: 90%;
     display: flex;
     flex-flow: row wrap;
     background-color: var(--tertiary-color);
@@ -26,10 +35,10 @@ header{
     justify-content: center;
     text-align: center;
     border: 8px solid var(--primary-color);
+    border-radius: 1rem;
     transition: all 500ms;
 }
 .week:hover{
-    border: 8px solid var(--primary-color);
     box-shadow: 10px 10px 10px black;
     transition: all 500ms;
 }
@@ -37,7 +46,7 @@ header{
     width: 100%;
     margin: 1rem;
 }
-.getMeals{
+.getMeals , .addMeals{
     width: 20%;
     padding: 1rem;
     font-size: 1.5rem;
@@ -47,14 +56,14 @@ header{
     cursor: pointer;
     transition: all 500ms;
 }
-.getMeals:hover{
+.getMeals:hover ,.addMeals:hover{
     padding: 1.2rem;
     background-color: white;
     color: var(--primary-color);
     box-shadow: 3px 3px 10px black;
     transition: all 500ms;
 }
-.getMeals:active{
+.getMeals:active ,.addMeals:active{
     background-color: var(--tertiary-color);
     color: white;
 }
@@ -83,4 +92,29 @@ header{
 .ingredients, .directions{
     width: 45%;
     font-size: 1.2rem;
+}
+.meals{
+    width: 90%;
+    border-radius: 1rem;
+    background-color: var(--secondary-color);
+    border: 8px solid var(--tertiary-color);
+    margin: 1rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    transition: all 500ms;
+}
+.meals:hover{
+    box-shadow: 10px 10px 10px var(--primary-color);
+    transition: all 500ms;
+}
+.addMealsDiv{
+    width: 100%;
+    text-align: center;
+    margin: 1rem;
+
+}
+.addMeals{
+    border: 5px solid var(--tertiary-color);
 }
