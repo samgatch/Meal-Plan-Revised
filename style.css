@@ -1,0 +1,86 @@
+*{
+    box-sizing: border-box;
+}
+:root{
+    --primary-color: #345830;
+    --secondary-color: #1e3f20;
+    --tertiary-color: #1a1f16;
+}
+header{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+    background-color: var(--primary-color);
+    color: white;
+    border-bottom: 5px solid var(--tertiary-color);
+}
+.week{
+    position: relative;
+    top: 6rem;
+    display: flex;
+    flex-flow: row wrap;
+    background-color: var(--tertiary-color);
+    color: white;
+    justify-content: center;
+    text-align: center;
+    border: 8px solid var(--primary-color);
+    transition: all 500ms;
+}
+.week:hover{
+    border: 8px solid var(--primary-color);
+    box-shadow: 10px 10px 10px black;
+    transition: all 500ms;
+}
+.getMealsDiv{
+    width: 100%;
+    margin: 1rem;
+}
+.getMeals{
+    width: 20%;
+    padding: 1rem;
+    font-size: 1.5rem;
+    background-color: var(--primary-color);
+    border: 5px solid var(--secondary-color);
+    color: white;
+    cursor: pointer;
+    transition: all 500ms;
+}
+.getMeals:hover{
+    padding: 1.2rem;
+    background-color: white;
+    color: var(--primary-color);
+    box-shadow: 3px 3px 10px black;
+    transition: all 500ms;
+}
+.getMeals:active{
+    background-color: var(--tertiary-color);
+    color: white;
+}
+.day{
+    width: 30%;
+    background-color: var(--primary-color);
+    margin: 1rem;
+    border: 5px solid var(--secondary-color);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    transition: all 500ms;
+}
+.day:hover{
+    box-shadow: 3px 3px 10px white;
+    transition: all 500ms;
+}
+.name{
+    width: 100%;
+    text-align: start;
+    font-size: 1.2rem;
+}
+.name h3{
+    padding-left: 1rem;
+}
+.ingredients, .directions{
+    width: 45%;
+    font-size: 1.2rem;
+}
