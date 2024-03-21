@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weekly Meal Plan</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <script src="https://kit.fontawesome.com/c05bee94a3.js" crossorigin="anonymous"></script>
 </head>
 <header>
     <h1 class="header">Weekly Meal Planner</h1>
 </header>
 <body>
-    <div class="overlay"></div>
+    <div class="overlay" id="overlay"></div>
     <div class="container">
         <div class="week">
             <div class="getMealsDiv">
@@ -98,29 +98,38 @@
         </div>
         <div class="meals">
             <div class="addMealsDiv">
-                <button class="addMealsBtn">Add Meals</button>
+                <button class="addMealsBtn" id="addMealsBtn">Add Meals</button>
                 <div class="mealsStorage">
                     
                 </div>
             </div>
         </div>
-        <div class="addMeal">
-            <h3>Add a New Meal</h3>
-            <div class="name"></div>
+        <div class="addMeal" id="addMeal">
+            <div class="top">
+                <h2>Add a New Meal</h2>
+                <button id="close"><i class="fa-regular fa-circle-xmark fa-xl"></i></button>
+            </div>
+            <div class="name">
                 <h3>Meal Name:</h3>
                 <input type="text" class="input" id="name">
             </div>
             <div class="ingredients">
                 <h3>Ingredients:</h3>
-                <ul id="ingList"></ul>
-                <button id="ingBtn"><i class="fa-regular fa-square-plus"></i></button>
+                <ul id="ingList">
+                    <li><input type="text" class="ing"></li>
+                </ul>
+                <button id="ingBtn"><i class="fa-regular fa-square-plus fa-xl"></i></button>
             </div>
             <div class="directions">
                 <h3>Directions:</h3>
-                <ul id="dirList"></ul>
-                <button id="dirBtn"><i class="fa-regular fa-square-plus"></i></button>
+                <ul id="dirList">
+                    <li><input type="text" class="ing"></li>
+                </ul>
+                <button id="dirBtn"><i class="fa-regular fa-square-plus fa-xl"></i></button>
             </div>
-            <button type="submit">Add</button>
+            <div class="submitDiv">
+                <button type="submit" class="submit" id="submit">Add</button>
+            </div>
         </div>
     </div>
 </body>
