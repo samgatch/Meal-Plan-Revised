@@ -21,3 +21,33 @@
     //On click calls
     addMealBtn.onclick = showAddMeal;
     closeMealBtn.onclick = closeAddMeal;
+
+//Function to add additional ingredients and directions in the add meal section
+
+    //Variables
+    const ingBtn = document.getElementById('ingBtn');
+    const dirBtn = document.getElementById('dirBtn');
+    const ingList = document.getElementById('ingList');
+    const dirList = document.getElementById('dirList');
+
+    //Functions
+    function ingAdd () {
+        let ingLi = document.createElement('li');
+        let input = document.createElement('input');
+        input.classList.add('ing');
+        input.setAttribute('type', 'text');
+        ingLi.appendChild(input);
+        ingList.appendChild(ingLi);
+    }
+    function dirAdd () {
+        let dirLi = document.createElement('li');
+        let input = document.createElement('input');
+        input.classList.add('dir');
+        input.setAttribute('type', 'text');
+        dirLi.appendChild(input);
+        dirList.appendChild(dirLi);
+    }
+
+    //On click calls
+    ingBtn.onclick = ingAdd;
+    dirBtn.onclick = dirAdd;

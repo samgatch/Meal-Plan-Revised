@@ -189,6 +189,9 @@ header{
     list-style-type: square;
     text-align: left;
 }
+.ing,.dir{
+    margin: .1rem;
+}
 #ingBtn, #dirBtn{
     background: none;
     border: none;
