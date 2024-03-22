@@ -95,15 +95,22 @@
             directions.push(directionsArray[i].firstChild.value);
         };
         pushMeal(name,ingredients,directions);
-        displayMeals();
+        ingredientsArray = [];
+        ingredientsLength = 0;
+        directionsArray = [];
+        directionsLength = 0;
+        ingredients = [];
+        directions = [];
         closeAddMeal();
+        displayMeals()
     }
 
     //Function to display the meals
     function displayMeals () {
+        const mealStore = document.getElementById('mealsStorage');
+        mealStore.innerHTML = '';
         length = meals.length;
         for(let i=0; i<length; i++) {
-            const mealDiv = document.getElementById('mealsStorage');
             const mealEl = document.createElement('div');
             mealEl.classList.add('mealEl');
             const mealTitle = document.createElement('h2');
@@ -126,12 +133,16 @@
                 dirList.appendChild(dirItem);
             }
             mealIng.appendChild(ingList);
+            console.log(mealIng);
             mealDir.appendChild(dirList);
+            console.log(mealDir);
             mealEl.appendChild(mealTitle);
             mealEl.appendChild(mealIng);
             mealEl.appendChild(mealDir);
-            mealDiv.appendChild(mealEl);
+            console.log(mealEl);
+            mealStore.appendChild(mealEl);
         }
     }
+    
     //On click call
     submit.onclick = pullMeal;

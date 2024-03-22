@@ -206,3 +206,22 @@ header{
     border: 5px solid var(--secondary-color);
     margin: 1rem;
 }
+.mealsStorage{
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    margin: 1rem;
+    justify-content: space-around;
+    align-items: center;
+}
+.mealEl{
+    width: 24%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.mealEl h2{
+    width: 100%;
+}
