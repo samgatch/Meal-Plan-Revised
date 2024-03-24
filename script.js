@@ -172,10 +172,20 @@
         for(let i=0;i<7;i++){
             dayName[i].innerHTML = picked[i].name;
             for(let j=0;j<picked[i].ingredients.length;j++){
-                dayIng[i].innerHTML += picked[i].ingredients[j] + ", ";
+                if(picked[i].ingredients[j] === picked[i].ingredients[picked[i].ingredients.length - 1]){
+                    dayIng[i].innerHTML += picked[i].ingredients[j];
+                }
+                else {
+                    dayIng[i].innerHTML += picked[i].ingredients[j] + ", ";
+                }
             }
             for(let k=0;k<picked[i].directions.length;k++){
-                dayDir[i].innerHTML += picked[i].directions[k] + ", ";
+                if(picked[i].directions[j] === picked[i].directions[picked[i].directions.length - 1]){
+                    dayDir[i].innerHTML += picked[i].directions[k];
+                }
+                else {
+                    dayDir[i].innerHTML += picked[i].directions[k] + ", ";
+                }
             }
         }
         
