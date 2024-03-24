@@ -49,7 +49,7 @@
 
 //Code Dealing with adding, storing, and manipulating meals
 
-    //Base Variables
+    //Variables
     let meals = [];
     let length;
     let meal;
@@ -128,16 +128,58 @@
                 dirList.appendChild(dirItem);
             }
             mealIng.appendChild(ingList);
-            console.log(mealIng);
             mealDir.appendChild(dirList);
-            console.log(mealDir);
             mealEl.appendChild(mealTitle);
             mealEl.appendChild(mealIng);
             mealEl.appendChild(mealDir);
-            console.log(mealEl);
             mealStore.appendChild(mealEl);
         }
     }
 
     //On click call
     submit.onclick = pullMeal;
+
+//Getting the meals for the week
+
+    //variables
+    const weekBtn = document.getElementById('getMeals');
+    var tempMeals;
+    var total;
+    var tempPicked;
+    var picked;
+
+    function addWeek () {
+        tempMeals = meals.slice();
+        total = meals.length;
+        tempPicked;
+        picked = [];
+        for (let i=0; i < 7; i++) {
+            tempPicked = tempMeals[Math.floor(Math.random() * total)];
+            picked.push(tempPicked);
+            index = tempMeals.indexOf(tempPicked);
+            tempMeals.splice(index,1);
+            total -= 1;
+        }
+        return picked;
+    }
+
+    //Function to get meals on button click
+    function getWeek () {
+        let picked = addWeek();
+        let dayName = document.getElementsByClassName('nameShow');
+        let dayIng = document.getElementsByClassName('ingShow');
+        let dayDir = document.getElementsByClassName('dirShow');
+        for(let i=0;i<7;i++){
+            dayName[i].innerHTML = picked[i].name;
+            for(let j=0;j<picked[i].ingredients.length;j++){
+                dayIng[i].innerHTML += picked[i].ingredients[j] + ", ";
+            }
+            for(let k=0;k<picked[i].directions.length;k++){
+                dayDir[i].innerHTML += picked[i].directions[k] + ", ";
+            }
+        }
+        
+    }
+
+    //on click call
+    weekBtn.onclick = getWeek;

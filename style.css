@@ -42,6 +42,9 @@ header{
     box-shadow: 10px 10px 10px black;
     transition: all 500ms;
 }
+.ingShow, .dirShow{
+    word-wrap: break-word;
+}
 .getMealsDiv{
     width: 100%;
     margin: 1rem;
@@ -168,7 +171,9 @@ header{
     outline: none;
     color: var(--primary-color);
     height: 2rem;
-    border: 2px solid var(--tertiary-color)
+    border: 2px solid var(--tertiary-color);
+    border-radius: 1rem;
+    padding: .5rem;
 }
 .ingredients, .directions{
     width: 45%;
@@ -228,9 +233,9 @@ header{
 }
 .mealEl ul{
     width: 100%;
-    display: inline-block;
     list-style-type: square;
 }
 .mealEl li{
-    float: left;
+    padding: .1rem;
+    word-wrap: break-word;
 }
