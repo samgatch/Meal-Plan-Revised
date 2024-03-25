@@ -174,19 +174,24 @@
 
     function removeMeal () {
         const removeInput = document.getElementById('removeInput');
+        console.log(storage);
+        console.log(meals)
         for(let i=0; i<length;i++) {
             if(meals[i].name === removeInput.value){
                 localStorage.removeItem('meal' + i);
                 meals.splice(i,1);
+                length -= 1;
                 for (let i=0; i<meals.length; i++){
                     mealsStorageId = 'meal' + i;
                     mealsJSON = JSON.stringify(meals[i]);
                     localStorage.setItem(mealsStorageId, mealsJSON);
                 }
                 localStorage.setItem('mealsLength', meals.length);
+                length = meals.length;
             }
         }
         displayMeals();
+        console.log(storage);
     }
 
     removeMealBtn.onclick = removeMeal;
@@ -238,7 +243,7 @@
                 }
             }
             for(let k=0;k<picked[i].directions.length;k++){
-                if(picked[i].directions[j] === picked[i].directions[picked[i].directions.length - 1]){
+                if(picked[i].directions[k] === picked[i].directions[picked[i].directions.length - 1]){
                     dayDir[i].innerHTML += picked[i].directions[k];
                 }
                 else {

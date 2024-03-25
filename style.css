@@ -123,12 +123,6 @@ header{
     justify-content: center;
     align-items: center;
 }
-.space{
-    width: 30%;
-}
-.other{
-    width: 69%;
-}
 .addMealsBtn, .removeMealsBtn{
     border: 5px solid var(--tertiary-color);
     width: 50%;
@@ -148,8 +142,7 @@ header{
 }
 .addMeal{
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 10rem;
     width: 50%;
     display: none;
     flex-flow: row wrap;
