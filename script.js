@@ -54,6 +54,7 @@
     let length;
     let meal;
     let name;
+    let storage = [];
     let ingredients = [];
     let directions = [];
     let ingredientsLength;
@@ -62,7 +63,25 @@
     let directionsArray;
     const submit = document.getElementById('submit');
     const mealBox = document.getElementById('mealsStorage');
+    let mealsStorageId;
+    let mealsJSON;
 
+    //Pulling stored meals
+    length = localStorage.getItem('mealsLength');
+        function getStorage () {
+            for(let i=0; i<length; i++){
+                storage.push(JSON.parse(localStorage.getItem('meal' + i)));
+            }
+            
+            if(storage === null) {
+                console.log('No stored meals');
+            }
+            else {
+                meals = storage;
+            }
+        }   
+
+    getStorage();
     //Function to create new meals in js
     function CreateMeal (name, ingredients, directions) {
         this.name = name;
@@ -75,7 +94,7 @@
         meal = new CreateMeal(name,ingredients,directions);
         meals.push(meal);
     }
-    
+
     //Adding meals from the add meal box
     function pullMeal () {
         name = document.getElementById('name').value;
@@ -97,6 +116,14 @@
         ingredients = [];
         directions = [];
         closeAddMeal();
+
+        //Storing meals
+        for (let i=0; i<meals.length; i++){
+            mealsStorageId = 'meal' + i;
+            mealsJSON = JSON.stringify(meals[i]);
+            localStorage.setItem(mealsStorageId, mealsJSON);
+        }
+        localStorage.setItem('mealsLength', meals.length);
         displayMeals();
     }
 
@@ -108,36 +135,67 @@
         for(let i=0; i<length; i++) {
             const mealEl = document.createElement('div');
             mealEl.classList.add('mealEl');
+            mealEl.id = 'meal' + i;
             const mealTitle = document.createElement('h2');
             const mealIng = document.createElement('div');
             const ingList = document.createElement('ul');
             const mealDir = document.createElement('div');
             const dirList = document.createElement('ul');
-            let titleData = meals[i].name;
-            let ingData = meals[i].ingredients;
-            let dirData = meals[i].directions;
-            mealTitle.innerHTML = titleData;
-            for(let j=0; j<ingData.length; j++) {
-                const ingItem = document.createElement('li');
-                ingItem.innerHTML = ingData[j];
-                ingList.appendChild(ingItem);
+            if (meals[i] === null){
+                console.log('invalid meal');
             }
-            for(let k=0; k<dirData.length; k++) {
-                const dirItem = document.createElement('li');
-                dirItem.innerHTML = dirData[k];
-                dirList.appendChild(dirItem);
+            else {
+                let titleData = meals[i].name;
+                let ingData = meals[i].ingredients;
+                let dirData = meals[i].directions;
+                mealTitle.innerHTML = titleData;
+                for(let j=0; j<ingData.length; j++) {
+                    const ingItem = document.createElement('li');
+                    ingItem.innerHTML = ingData[j];
+                    ingList.appendChild(ingItem);
+                }
+                for(let k=0; k<dirData.length; k++) {
+                    const dirItem = document.createElement('li');
+                    dirItem.innerHTML = dirData[k];
+                    dirList.appendChild(dirItem);
+                }
+                mealIng.appendChild(ingList);
+                mealDir.appendChild(dirList);
+                mealEl.appendChild(mealTitle);
+                mealEl.appendChild(mealIng);
+                mealEl.appendChild(mealDir);
+                mealStore.appendChild(mealEl);
             }
-            mealIng.appendChild(ingList);
-            mealDir.appendChild(dirList);
-            mealEl.appendChild(mealTitle);
-            mealEl.appendChild(mealIng);
-            mealEl.appendChild(mealDir);
-            mealStore.appendChild(mealEl);
         }
     }
 
+    //Function to remove meals
+    const removeMealBtn = document.getElementById('removeMealsBtn');
+
+    function removeMeal () {
+        const removeInput = document.getElementById('removeInput');
+        for(let i=0; i<length;i++) {
+            if(meals[i].name === removeInput.value){
+                localStorage.removeItem('meal' + i);
+                meals.splice(i,1);
+                for (let i=0; i<meals.length; i++){
+                    mealsStorageId = 'meal' + i;
+                    mealsJSON = JSON.stringify(meals[i]);
+                    localStorage.setItem(mealsStorageId, mealsJSON);
+                }
+                localStorage.setItem('mealsLength', meals.length);
+            }
+        }
+        displayMeals();
+    }
+
+    removeMealBtn.onclick = removeMeal;
+
+    displayMeals();
+
     //On click call
     submit.onclick = pullMeal;
+
 
 //Getting the meals for the week
 
