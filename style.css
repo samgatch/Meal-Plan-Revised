@@ -120,16 +120,19 @@ header{
     margin: 1rem;
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 .addMealsBtn, .removeMealsBtn{
     border: 5px solid var(--tertiary-color);
-    width: 50%;
+    width: 20%;
+}
+.addMealsBtn{
+    margin-left: 1.5rem;
 }
 .removeMealsBtn{
     width: 20%;
-    margin-left: 1.5rem;
+    margin-right: 1.5rem;
 }
 #removeInput{
     outline: none;
@@ -138,7 +141,10 @@ header{
     border: 5px solid var(--tertiary-color);
     border-radius: 1.5rem;
     padding: 1.5rem;
-    width: 30%;
+    width: 20%;
+    position: absolute;
+    right: 30rem;
+    top: 52.5rem;
 }
 .addMeal{
     position: absolute;
