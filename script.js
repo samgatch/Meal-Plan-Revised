@@ -117,9 +117,9 @@
             dirLiList.removeChild(dirLiList.lastChild);
         }
         pushMeal(name,ingredients,directions);
-        document.getElementById('name').value = null;
-        dirLiList.firstElementChild.firstElementChild.value = null;
-        ingLiList.firstElementChild.firstElementChild.value = null;
+        document.getElementById('name').value = '';
+        dirLiList.firstElementChild.firstElementChild.value = '';
+        ingLiList.firstElementChild.firstElementChild.value = '';
         ingredientsArray = [];
         ingredientsLength = 0;
         directionsArray = [];
