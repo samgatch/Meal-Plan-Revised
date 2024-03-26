@@ -61,6 +61,8 @@
     let ingredientsArray;
     let directionsLength;
     let directionsArray;
+    let ingLiList = document.getElementById('ingList');
+    let dirLiList = document.getElementById('dirList');
     const submit = document.getElementById('submit');
     const mealBox = document.getElementById('mealsStorage');
     let mealsStorageId;
@@ -108,7 +110,16 @@
         for(let i=0; i<directionsLength; i++){
             directions.push(directionsArray[i].firstChild.value);
         };
+        for(let i=0; i<ingredientsArray.length; i++){
+            ingLiList.removeChild(ingLiList.lastChild);
+        }
+        for(let i=0; i<directionsArray.length; i++){
+            dirLiList.removeChild(dirLiList.lastChild);
+        }
         pushMeal(name,ingredients,directions);
+        document.getElementById('name').value = null;
+        dirLiList.firstElementChild.firstElementChild.value = null;
+        ingLiList.firstElementChild.firstElementChild.value = null;
         ingredientsArray = [];
         ingredientsLength = 0;
         directionsArray = [];
@@ -173,9 +184,7 @@
     const removeMealBtn = document.getElementById('removeMealsBtn');
 
     function removeMeal () {
-        const removeInput = document.getElementById('removeInput');
-        console.log(storage);
-        console.log(meals)
+        let removeInput = document.getElementById('removeInput');
         for(let i=0; i<length;i++) {
             if(meals[i].name === removeInput.value){
                 localStorage.removeItem('meal' + i);
@@ -190,8 +199,8 @@
                 length = meals.length;
             }
         }
+        removeInput.value = '';
         displayMeals();
-        console.log(storage);
     }
 
     removeMealBtn.onclick = removeMeal;
