@@ -1,5 +1,6 @@
 *{
     box-sizing: border-box;
+    font-family: 'fira-sans', sans-serif;
 }
 :root{
     --primary-color: #345830;
